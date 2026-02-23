@@ -1,0 +1,99 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+:root {
+  /* White background */
+  --ifm-background-color: #ffffff;
+  --ifm-background-surface-color: #ffffff;
+
+  /* Titles: plain black and very bold */
+  --ifm-heading-color: #000000;
+  --ifm-heading-font-weight: 800;
+
+  /* Primary palette: #F0544F */
+  --ifm-color-primary: #f0544f;
+  --ifm-color-primary-dark: #e04a45;
+  --ifm-color-primary-darker: #c9413c;
+  --ifm-color-primary-darkest: #b23833;
+  --ifm-color-primary-light: #f26661;
+  --ifm-color-primary-lighter: #f47873;
+  --ifm-color-primary-lightest: #f69a96;
+
+  /* Secondary: light grey in light mode */
+  --ifm-color-secondary: #e8e8e8;
+  --ifm-color-secondary-dark: #d8d8d8;
+  --ifm-color-secondary-darker: #c8c8c8;
+  --ifm-color-secondary-darkest: #b8b8b8;
+  --ifm-color-secondary-light: #f0f0f0;
+  --ifm-color-secondary-lighter: #f5f5f5;
+  --ifm-color-secondary-lightest: #fafafa;
+
+  /* Links use primary for visibility */
+  --ifm-link-color: #f0544f;
+  --ifm-link-hover-color: #e04a45;
+
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+}
+
+/* Hero: ensure sufficient contrast on primary background. */
+.hero--primary {
+  --ifm-hero-text-color: #ffffff;
+  color: #ffffff;
+}
+.hero--primary .hero__title,
+.hero--primary .hero__subtitle {
+  color: #ffffff;
+}
+.hero--primary .button--primary {
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+/* Dark mode: dark backgrounds, light headings, primary/secondary adjusted for contrast */
+[data-theme='dark'] {
+  --ifm-background-color: #121212;
+  --ifm-background-surface-color: #1e2125;
+
+  --ifm-heading-color: #e3e3e3;
+
+  --ifm-color-primary: #f26661;
+  --ifm-color-primary-dark: #f0544f;
+  --ifm-color-primary-darker: #e04a45;
+  --ifm-color-primary-darkest: #c9413c;
+  --ifm-color-primary-light: #f47873;
+  --ifm-color-primary-lighter: #f69a96;
+  --ifm-color-primary-lightest: #f8b5b2;
+
+  /* Secondary: dark grey in dark mode */
+  --ifm-color-secondary: #4a4a4a;
+  --ifm-color-secondary-dark: #3a3a3a;
+  --ifm-color-secondary-darker: #2a2a2a;
+  --ifm-color-secondary-darkest: #1a1a1a;
+  --ifm-color-secondary-light: #5a5a5a;
+  --ifm-color-secondary-lighter: #6a6a6a;
+  --ifm-color-secondary-lightest: #7a7a7a;
+
+  --ifm-link-color: #f69a96;
+  --ifm-link-hover-color: #f8b5b2;
+
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+[data-theme='dark'] .button--secondary {
+  color: #ffffff;
+}
+
+.navbar__title {
+  font-size: x-large;
+  font-weight: 900;
+}
+
+.hero__subtitle {
+  max-width: 800px;
+  margin: 0 auto 2rem;
+}

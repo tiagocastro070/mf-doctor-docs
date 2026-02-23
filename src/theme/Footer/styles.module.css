@@ -1,0 +1,29 @@
+.donationBanner {
+  padding: 1rem 0;
+  text-align: center;
+  background-color: var(--ifm-background-surface-color);
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.donationTitle {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 900;
+  color: var(--ifm-color-content-secondary);
+}
+
+.donationText {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--ifm-color-content-secondary);
+}
+
+.donationLink {
+  color: var(--ifm-link-color);
+  text-decoration: none;
+}
+
+.donationLink:hover {
+  color: var(--ifm-link-hover-color);
+  text-decoration: underline;
+}
