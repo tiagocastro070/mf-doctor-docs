@@ -15,13 +15,13 @@ const config: Config = {
     v4: true, // Improve compatibility with the upcoming Docusaurus v4
   },
 
-  // Set the production url of your site here
-  url: "https://mf-doctor.dev",
-  // Set the /<baseUrl>/ pathname under which your site is served
-  baseUrl: "/",
+  // GitHub Pages: https://tiagocastro070.github.io/mf-doctor-docs/
+  url: "https://tiagocastro070.github.io",
+  baseUrl: "/mf-doctor-docs/",
 
-  organizationName: "mf-doctor",
-  projectName: "mf-doctor-documentation",
+  organizationName: "tiagocastro070",
+  projectName: "mf-doctor-docs",
+  trailingSlash: false,
 
   onBrokenLinks: "throw",
 
@@ -39,7 +39,7 @@ const config: Config = {
       {
         docs: {
           sidebarPath: "./sidebars.ts",
-          editUrl: "https://github.com/tiagocastro070/mf-doctor-documentation/tree/main/",
+          editUrl: "https://github.com/tiagocastro070/mf-doctor-docs/tree/main/",
           // Enable when in a git repo: showLastUpdateTime: true
         },
         theme: {
