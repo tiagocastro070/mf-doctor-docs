@@ -39,11 +39,15 @@ const config: Config = {
       {
         docs: {
           sidebarPath: "./sidebars.ts",
-          editUrl: "https://github.com/tiagocastro070/mf-doctor-docs/tree/main/",
+          editUrl:
+            "https://github.com/tiagocastro070/mf-doctor-docs/tree/main/",
           // Enable when in a git repo: showLastUpdateTime: true
         },
         theme: {
           customCss: "./src/css/custom.css",
+        },
+        googleTagManager: {
+          containerId: "G-HQ2DYB13FL",
         },
       } satisfies Preset.Options,
     ],
