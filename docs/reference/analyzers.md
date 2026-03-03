@@ -22,6 +22,7 @@ mf-doctor runs the following analyzers by default. You can enable/disable them i
 
 Detects when different participants use different versions of React or react-dom.
 
+- **Scope:** Only considers runtime `dependencies`; React in `devDependencies` is not analyzed.
 - **Why it matters:** Multiple React versions cause duplicate bundles, "Invalid hook call" errors, and subtle runtime bugs.
 - **Severity:** HIGH
 - **Suggestions:** Align all participants to the same React version; ensure shared config uses consistent `requiredVersion`; consider workspace-level dependency constraints.
@@ -32,6 +33,7 @@ Detects when different participants use different versions of React or react-dom
 
 Detects inconsistent shared configuration across participants for the same package (singleton, eager, requiredVersion).
 
+- **Scope:** Only analyzes shared packages that are runtime `dependencies`; packages exclusively in `devDependencies` are skipped.
 - **Why it matters:** Different `singleton`/`eager`/`requiredVersion` lead to unpredictable resolution and multiple instances of singleton libraries.
 - **Severity:** HIGH for incompatible `requiredVersion` ranges; MEDIUM for compatible but different ranges or eager mismatch; LOW when shared by some but not all (with singleton elsewhere).
 - **Suggestions:** Set consistent `singleton`, `eager`, and `requiredVersion` for shared packages across all participants.
@@ -42,6 +44,7 @@ Detects inconsistent shared configuration across participants for the same packa
 
 Identifies dependencies used by both host and remotes that are not in the host's shared config.
 
+- **Scope:** Only runtime `dependencies` are analyzed; `devDependencies` are excluded (they are not loaded into the browser).
 - **Why it matters:** Adding them to shared can reduce duplicate bundles and version drift.
 - **Severity:** MEDIUM
 - **Suggestions:** Add the dependency to the host's (and remotes') shared config; consider `singleton: true` for stateful libraries.
@@ -52,6 +55,7 @@ Identifies dependencies used by both host and remotes that are not in the host's
 
 Detects dependencies used by multiple participants but not configured in any shared config.
 
+- **Scope:** Only runtime `dependencies` are analyzed; `devDependencies` are excluded (they are not loaded into the browser).
 - **Why it matters:** Each participant bundles its own copy, increasing size and risk of version mismatch.
 - **Severity:** MEDIUM
 - **Suggestions:** Add the dependency to shared config in all participants that use it; use consistent `requiredVersion`.
