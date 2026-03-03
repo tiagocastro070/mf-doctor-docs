@@ -9,7 +9,7 @@ mf-doctor can be configured via an optional `mf-doctor.config.*` file in the wor
 ## Options
 
 - **severityThreshold** — Exit with non-zero when findings meet or exceed this severity. Default: `HIGH`. Use `MEDIUM` or `LOW` for stricter CI.
-- **checks** — Enable or disable individual [analyzers](/docs/reference/analyzers). Omitted analyzers are enabled by default.
+- **checks** — Enable or disable individual [analyzers](/docs/reference/analyzers). Omitted analyzers are enabled by default. For `orphan-expose`, use `allowWithRuntimeRemotes: true` to run it even when hosts load remotes at runtime.
 - **ignore** — Glob patterns to exclude packages from participant discovery (e.g. `["apps/legacy/**"]`).
 - **hosts** — Participant names to mark as hosts when remotes are loaded at runtime. Merged with CLI `--host`.
 
@@ -36,6 +36,8 @@ When shell and remotes live in different repos or remotes are loaded at runtime 
 export default {
   hosts: ["shell-ui", "admin-shell"],
   severityThreshold: "HIGH",
+  // orphan-expose is auto-disabled when hosts load remotes at runtime; add this to override:
+  // checks: { "orphan-expose": { allowWithRuntimeRemotes: true } },
 };
 ```
 

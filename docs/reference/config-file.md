@@ -11,7 +11,7 @@ Optional config file: `mf-doctor.config.ts`, `mf-doctor.config.mts`, `mf-doctor.
 | Option | Type | Description |
 |--------|------|-------------|
 | `severityThreshold` | `"LOW" \| "MEDIUM" \| "HIGH"` | Exit non-zero when findings meet or exceed this severity (default: `HIGH`) |
-| `checks` | `Record<string, { enabled?: boolean }>` | Per-analyzer config; `enabled: false` disables an analyzer |
+| `checks` | `Record<string, { enabled?: boolean; allowWithRuntimeRemotes?: boolean }>` | Per-analyzer config; `enabled: false` disables an analyzer; for `orphan-expose`, `allowWithRuntimeRemotes: true` runs it even when hosts load remotes at runtime |
 | `ignore` | `string[]` | Glob patterns to exclude from participant discovery (e.g. `["apps/legacy/**"]`) |
 | `hosts` | `string[]` | Participant names to mark as hosts (runtime-loaded remotes) |
 
@@ -23,6 +23,7 @@ export default {
   checks: {
     "react-version-drift": { enabled: true },
     "shared-config-mismatch": { enabled: true },
+    "orphan-expose": { allowWithRuntimeRemotes: true }, // run even when hosts load remotes at runtime
   },
   ignore: ["apps/legacy/**"],
   hosts: ["shell-ui"],

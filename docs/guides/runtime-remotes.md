@@ -32,7 +32,9 @@ CLI and config hosts are merged.
 ## Analyzer impact
 
 :::warning Static analysis only
-Analyzers that depend on host–remote edges (e.g. which remotes a host consumes) may be **less accurate** when remotes are runtime-loaded, because those edges are unknown at static analysis time. Version drift and shared-config checks across participants still run; orphan-expose and circular-dependency may not see the full picture.
+Analyzers that depend on host–remote edges (e.g. which remotes a host consumes) may be **less accurate** when remotes are runtime-loaded, because those edges are unknown at static analysis time. Version drift and shared-config checks across participants still run; circular-dependency may not see the full picture.
 :::
+
+**orphan-expose** is **auto-disabled** when any host loads remotes at runtime, to avoid false positives ("remote X exposes modules but is not consumed by any host"). To override: set `checks["orphan-expose"].allowWithRuntimeRemotes: true` in config, or run `--analyzers orphan-expose` explicitly.
 
 Use host override when your shell resolves remotes dynamically (e.g. from a config server or env) so mf-doctor still treats the shell as a host in reports and graphs.

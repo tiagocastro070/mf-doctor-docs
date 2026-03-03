@@ -80,6 +80,8 @@ Detects remotes that have exposes but are not consumed by any host.
 - **Severity:** LOW
 - **Suggestions:** Add the remote to a host's remotes config, or remove unused exposes.
 
+**Runtime-loaded remotes:** When any host loads remotes at runtime (`--host` or `hosts` in config), orphan-expose is **auto-disabled** to avoid false positives (the graph has no edges from those hosts to their remotes). To override: set `checks["orphan-expose"].allowWithRuntimeRemotes: true` in config, or explicitly request it via `--analyzers orphan-expose`.
+
 ---
 
 ## circular-dependency
