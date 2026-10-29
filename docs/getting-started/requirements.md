@@ -4,7 +4,7 @@ sidebar_position: 3
 
 # Requirements
 
-- **Node.js** 18 or above
+- **Node.js** 20 or above
 
 Your workspace must:
 
